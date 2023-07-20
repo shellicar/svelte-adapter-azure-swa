@@ -60,10 +60,7 @@ export async function index(context) {
  * @returns {Request}
  * */
 function toRequest(context) {
-	const { method, headers, rawBody, body } = context.req;
-	// because we proxy all requests to the render function, the original URL in the request is /api/__render
-	// this header contains the URL the user requested
-	const originalUrl = headers['x-ms-original-url'];
+	const { method, headers, rawBody, body, url: originalUrl } = context.req;
 
 	/** @type {RequestInit} */
 	const init = {
