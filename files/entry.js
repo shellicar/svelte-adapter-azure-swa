@@ -65,6 +65,12 @@ export async function index(context) {
 function toRequest(context) {
 	const { method, headers, rawBody, body, url: originalUrl } = context.req;
   context.log('Request url', originalUrl);
+  const url = new URL(originalUrl);
+  if(url.pathname === '/') {
+    url.pathname = '';
+  }
+  const newUrl = url.href;
+  context.log('New url', newUrl);
 
 	/** @type {RequestInit} */
 	const init = {
@@ -80,7 +86,7 @@ function toRequest(context) {
 			: rawBody;
 	}
 
-	return new Request(originalUrl, init);
+	return new Request(newUrl, init);
 }
 
 /**
