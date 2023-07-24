@@ -26,10 +26,13 @@ const initialized = server.init({ env: process.env });
  * @param {Context} context
  */
 export async function index(context) {
+  if (debug) {
+    context.log('Request', context.req.url);
+  }
 	const request = toRequest(context);
 
 	if (debug) {
-		context.log(`Request: ${JSON.stringify(request)}`);
+		// context.log(`Request: ${JSON.stringify(request)}`);
 	}
 
 	const ipAddress = getClientIPFromHeaders(request.headers);
@@ -61,6 +64,7 @@ export async function index(context) {
  * */
 function toRequest(context) {
 	const { method, headers, rawBody, body, url: originalUrl } = context.req;
+  context.log('Request url', originalUrl);
 
 	/** @type {RequestInit} */
 	const init = {
