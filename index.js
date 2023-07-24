@@ -2,6 +2,7 @@ import { writeFileSync, existsSync } from 'fs';
 import { join, posix } from 'path';
 import { fileURLToPath } from 'url';
 import esbuild from 'esbuild';
+import path from 'node:path';
 
 /**
  * @typedef {import('esbuild').BuildOptions} BuildOptions
@@ -140,6 +141,7 @@ If you want to suppress this error, set allowReservedSwaRoutes to true in your a
 			builder.log.minor('Copying assets...');
 			builder.writeClient(staticDir);
 			builder.writePrerendered(staticDir);
+      await builder.generateFallback(path.join(staticDir, 'index.html'));
 
 			if (!builder.prerendered.paths.includes('/')) {
 				// Azure SWA requires an index.html to be present
