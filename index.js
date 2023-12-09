@@ -131,7 +131,9 @@ If you want to suppress this error, set allowReservedSwaRoutes to true in your a
 				platform: 'node',
 				target: 'node16',
 				sourcemap: 'linked',
-				external: esbuildOptions.external
+				external: esbuildOptions.external,
+				keepNames: esbuildOptions.keepNames,
+				loader: esbuildOptions.loader
 			};
 
 			await esbuild.build(default_options);
@@ -194,6 +196,12 @@ export function generateConfig(customStaticWebAppConfig, appDir) {
 		...customStaticWebAppConfig,
 		routes: [
 			...customStaticWebAppConfig.routes,
+			{
+				route: '/api/*'
+			},
+			{
+				route: '/data-api/*'
+			},
 			{
 				route: '*',
 				methods: ['POST', 'PUT', 'DELETE'],
