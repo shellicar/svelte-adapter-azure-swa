@@ -29,6 +29,12 @@ export async function index(context) {
 	const request = toRequest(context);
 
 	if (debug) {
+		context.log(
+			'Starting request',
+			context?.req?.method,
+			context?.req?.headers?.['x-ms-original-url']
+		);
+		context.log(`Original request: ${JSON.stringify(context)}`);
 		context.log(`Request: ${JSON.stringify(request)}`);
 	}
 
@@ -62,6 +68,12 @@ export async function index(context) {
  * */
 function toRequest(context) {
 	const { method, headers, rawBody, body, url: originalUrl } = context.req;
+
+	// SWA strips content-type headers from empty POST requests, but SK form actions require the header
+	// https://github.com/geoffrich/svelte-adapter-azure-swa/issues/178
+	if (method === 'POST' && !body && !headers['content-type']) {
+		headers['content-type'] = 'application/x-www-form-urlencoded';
+	}
 
 	/** @type {RequestInit} */
 	const init = {

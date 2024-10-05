@@ -1,44 +1,52 @@
 {
-  "name": "svelte-adapter-azure-swa",
-  "description": "SvelteKit adapter for Azure Static Web Apps.",
-  "version": "0.20.0",
-  "main": "index.js",
-  "type": "module",
-  "scripts": {
-    "format": "npm run check-format -- --write",
-    "check-format": "prettier --check .",
-    "check-types": "tsc --skipLibCheck",
-    "test": "vitest",
-    "test:coverage": "vitest run --coverage"
-  },
-  "exports": {
-    ".": {
-      "types": "./index.d.ts",
-      "import": "./index.js"
-    },
-    "./package.json": "./package.json"
-  },
-  "license": "MIT",
-  "keywords": ["svelte", "sveltekit", "sveltekit-adapter", "azure", "staticwebapp"],
-  "homepage": "https://github.com/geoffrich/svelte-adapter-azure-swa#readme",
-  "bugs": {
-    "url": "https://github.com/geoffrich/svelte-adapter-azure-swa/issues"
-  },
-  "peerDependencies": {
-    "@sveltejs/kit": "^2.0.0"
-  },
-  "devDependencies": {
-    "@azure/functions": "^1.2.3",
-    "@sveltejs/kit": "^2.5.27",
-    "@types/node": "^18.19.50",
-    "@types/set-cookie-parser": "^2.4.10",
-    "prettier": "^3.3.3",
-    "typescript": "~5.3.3",
-    "vitest": "^1.6.0"
-  },
-  "dependencies": {
-    "esbuild": "^0.19.12",
-    "set-cookie-parser": "^2.7.0"
-  },
-  "files": ["files", "index.js", "index.d.ts", "types"]
+	"name": "svelte-adapter-azure-swa",
+	"description": "SvelteKit adapter for Azure Static Web Apps.",
+	"version": "0.20.1",
+	"main": "index.js",
+	"type": "module",
+	"scripts": {
+		"format": "npm run check-format -- --write",
+		"check-format": "prettier --check .",
+		"check-types": "tsc --skipLibCheck",
+		"test": "vitest",
+		"test:coverage": "vitest run --coverage"
+	},
+	"exports": {
+		".": {
+			"types": "./index.d.ts",
+			"import": "./index.js"
+		},
+		"./package.json": "./package.json"
+	},
+	"license": "MIT",
+	"keywords": [
+		"svelte",
+		"sveltekit",
+		"sveltekit-adapter",
+		"azure",
+		"staticwebapp"
+	],
+	"homepage": "https://github.com/geoffrich/svelte-adapter-azure-swa#readme",
+	"bugs": {
+		"url": "https://github.com/geoffrich/svelte-adapter-azure-swa/issues"
+	},
+	"devDependencies": {
+		"@azure/functions": "^1.2.3",
+		"@sveltejs/kit": "^2.5.22",
+		"@types/node": "^22.7.4",
+		"@types/set-cookie-parser": "^2.4.10",
+		"prettier": "^3.3.3",
+		"typescript": "^5.5.4",
+		"vitest": "^2.1.2"
+	},
+	"files": [
+		"files",
+		"index.js",
+		"index.d.ts",
+		"types"
+	],
+	"dependencies": {
+		"esbuild": "^0.24.0",
+		"set-cookie-parser": "^2.7.0"
+	}
 }
