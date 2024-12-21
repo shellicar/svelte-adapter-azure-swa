@@ -31,13 +31,13 @@
 		"url": "https://github.com/geoffrich/svelte-adapter-azure-swa/issues"
 	},
 	"devDependencies": {
-		"@azure/functions": "^1.2.3",
-		"@sveltejs/kit": "^2.5.22",
-		"@types/node": "^22.7.4",
+		"@azure/functions": "^4.6.0",
+		"@sveltejs/kit": "^2.13.0",
+		"@types/node": "^22.10.2",
 		"@types/set-cookie-parser": "^2.4.10",
-		"prettier": "^3.3.3",
-		"typescript": "^5.5.4",
-		"vitest": "^2.1.2"
+		"prettier": "^3.4.2",
+		"typescript": "^5.7.2",
+		"vitest": "^2.1.8"
 	},
 	"files": [
 		"files",
@@ -46,7 +46,7 @@
 		"types"
 	],
 	"dependencies": {
-		"esbuild": "^0.24.0",
-		"set-cookie-parser": "^2.7.0"
+		"esbuild": "^0.24.2",
+		"set-cookie-parser": "^2.7.1"
 	}
 }
